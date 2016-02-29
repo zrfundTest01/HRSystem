@@ -11,20 +11,20 @@
 	<!-- 该配置使得struts2内置的大量的通用功能的拦截器发挥作用，如defaultStack、basicStack等等 -->
 	<package name="default" extends="struts-default">
 	
-	<!--定义了权限控制的拦截器-->
-	<!-- 利用用户登陆后放session的level,作用户角色（权限）控制 -->
-	<interceptors>
-		<interceptor name="empAuth" class="org.zs.hrsystem.action.authority.EmpAuthorityInterceptor"/>
-		<interceptor name="mgrAuth" class="org.zs.hrsystem.action.authority.MgrAuthorityInterceptor"/>
-		<interceptor-stack name="empStack">
-			<interceptor-ref name="defaultStack"/>
-			<interceptor-ref name="empAuth"/>
-		</interceptor-stack>
-		<interceptor-stack name="mgrStack">
-			<interceptor-ref name="defaultStack"/>
-			<interceptor-ref name="mgrAuth"/>
-		</interceptor-stack>
-	</interceptors>
+		<!--定义了权限控制的拦截器-->
+		<!-- 利用用户登陆后放session的level,作用户角色（权限）控制 -->
+		<interceptors>
+			<interceptor name="empAuth" class="org.zs.hrsystem.action.authority.EmpAuthorityInterceptor"/>
+			<interceptor name="mgrAuth" class="org.zs.hrsystem.action.authority.MgrAuthorityInterceptor"/>
+			<interceptor-stack name="empStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="empAuth"/>
+			</interceptor-stack>
+			<interceptor-stack name="mgrStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="mgrAuth"/>
+			</interceptor-stack>
+		</interceptors>
 
 		<!-- 定义全局Result映射 -->
 		<global-results>
@@ -39,13 +39,11 @@
 
 <!--============================下面是员工角色的Action========================-->
 		<!-- 定义处理登出请求的Action -->
-		<action name="logout" 
-			class="org.zs.hrsystem.action.LogoutAction">
+		<action name="logout" class="org.zs.hrsystem.action.LogoutAction">
 			<result>/WEB-INF/jsp/main.jsp</result>
 		</action>
 		<!-- 定义处理登录系统的的Action -->
-		<action name="processLogin"
-			class="org.zs.hrsystem.action.LoginAction">
+		<action name="processLogin"	class="org.zs.hrsystem.action.LoginAction">
 			<result name="input">/WEB-INF/jsp/login.jsp</result><!--输入校验结果视图  -->
 			<result name="mgr">/WEB-INF/jsp/manager/index.jsp</result>
 			<result name="emp">/WEB-INF/jsp/employee/index.jsp</result>
@@ -165,6 +163,7 @@
 		<action name="">
 			<result>.</result>
 		</action>
+		<!-- 所有请求会先经过StrutsPrepareAndExecuteFilter,再由Filter forward 到/WEB-INF/jsp/目录中对应的jsp -->
 		<action name="*">
 			<result>/WEB-INF/jsp/{1}.jsp</result>
 		</action>

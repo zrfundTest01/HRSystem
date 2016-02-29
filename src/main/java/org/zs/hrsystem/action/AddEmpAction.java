@@ -5,7 +5,7 @@ import org.zs.hrsystem.action.base.MgrBaseAction;
 import com.opensymphony.xwork2.ActionContext;
 
 public class AddEmpAction extends MgrBaseAction {
-	//新增员工的名字
+		//新增员工的名字
 		private String empName;
 		//新增员工的密码
 		private String empPass;
@@ -13,7 +13,8 @@ public class AddEmpAction extends MgrBaseAction {
 		private double empSal;
 		//封装提示信息的tip属性
 		private String tip;
-		 public String execute() throws Exception{
+		
+		public String execute() throws Exception{
 			//创建ActionContext实例
 			ActionContext ctx = ActionContext.getContext();
 			//获取HttpSession中的user属性

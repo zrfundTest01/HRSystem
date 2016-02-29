@@ -1,10 +1,12 @@
 package org.zs.hrsystem.service.impl;
 
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.zs.hrsystem.action.LoginAction;
 import org.zs.hrsystem.dao.ApplicationDao;
 import org.zs.hrsystem.dao.AttendDao;
 import org.zs.hrsystem.dao.AttendTypeDao;

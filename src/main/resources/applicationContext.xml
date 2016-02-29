@@ -12,8 +12,7 @@
 	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
 
 	<!-- 定义数据源Bean，使用C3P0(开源的JDBC连接池)数据源实现 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"	destroy-method="close">
 		<!-- 指定连接数据库的驱动 -->
 		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
 		<!-- 指定连接数据库的URL -->
@@ -52,8 +51,7 @@
 		<property name="hibernateProperties">
 			<props>
 				<!-- 指定数据库方言 -->
-				<prop key="hibernate.dialect">
-					org.hibernate.dialect.MySQLInnoDBDialect</prop>
+				<prop key="hibernate.dialect"> org.hibernate.dialect.MySQLInnoDBDialect</prop>
 				<!-- 是否根据需要每次自动创建数据库 -->
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<!-- 显示Hibernate持久化操作所生成的SQL -->
@@ -63,11 +61,9 @@
 			</props>
 		</property>
 	</bean>
-
 	<!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
 	<!-- 该类实现PlatformTransactionManager接口(Spring)，是针对Hibernate的特定实现-->
-	<bean id="transactionManager" class=
-		"org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<!-- 配置HibernateTransactionManager时需要依注入SessionFactory的引用 -->
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
@@ -82,14 +78,10 @@
 		</tx:attributes>
 	</tx:advice>
 	<aop:config>
-		<!-- 配置一个切面，匹配org.zs.hrsystem.service.impl包下
-			所有以Impl结尾的类的所有方法的执行 -->
-		<aop:pointcut id="zsPointcut"
-			expression=
-			"execution(* org.zs.hrsystem.service.impl.*Impl.*(..))"/>
+		<!-- 配置一个切面，匹配org.zs.hrsystem.service.impl包下所有以Impl结尾的类的所有方法的执行 -->
+		<aop:pointcut id="zsPointcut" expression= "execution(* org.zs.hrsystem.service.impl.*Impl.*(..))"/>
 		<!-- 指定在txAdvice切入点应用txAdvice事务切面 -->
-		<aop:advisor advice-ref="txAdvice" 
-			pointcut-ref="zsPointcut"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="zsPointcut"/>
 	</aop:config>
 	
 	<!--业务逻辑层been定义： 定义业务逻辑组件模板 -->
@@ -105,19 +97,15 @@
         <property name="checkDao" ref="checkDao"/>
 	</bean>
 	<!-- 定义两个业务逻辑组件，继承业务逻辑组件的模板 -->
-    <bean id="empManager"
-		class="org.zs.hrsystem.service.impl.EmpManagerImpl"
-		parent="managerTemplate"/>
-    <bean id="mgrManager"
-		class="org.zs.hrsystem.service.impl.MgrManagerImpl"
-		parent="managerTemplate"/>
+    <bean id="empManager" class="org.zs.hrsystem.service.impl.EmpManagerImpl"	parent="managerTemplate"/>
+    <bean id="mgrManager" class="org.zs.hrsystem.service.impl.MgrManagerImpl" 	parent="managerTemplate"/>
+		
+		
 	<!-- 自动结算：定义触发器来管理任务Bean -->
-	<bean id="cronTriggerPay" 
-		class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="cronTriggerPay" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail">
 			<!-- 使用嵌套Bean的方式来定义任务Bean -->
-			<bean 
-			class="org.springframework.scheduling.quartz.JobDetailBean">
+			<bean class="org.springframework.scheduling.quartz.JobDetailBean">
 				<!-- 指定任务Bean的实现类 -->
 				<property name="jobClass" value="org.zs.hrsystem.schedule.PayJob"/>
 				<!-- 为任务Bean注入属性 -->
@@ -133,12 +121,10 @@
 	</bean>
 	
 	<!-- 自动打卡：定义触发器来管理任务Bean -->
-	<bean id="cronTriggerPunch" 
-		class="org.springframework.scheduling.quartz.CronTriggerBean">
+	<bean id="cronTriggerPunch"  class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail">
 			<!-- 使用嵌套Bean的方式来定义任务Bean -->
-			<bean
-			class="org.springframework.scheduling.quartz.JobDetailBean">
+			<bean class="org.springframework.scheduling.quartz.JobDetailBean">
 				<!-- 指定任务Bean的实现类,自动打卡 -->
 				<property name="jobClass" value="org.zs.hrsystem.schedule.PunchJob"/>
 				<!-- 为任务Bean注入属性 -->
@@ -153,8 +139,7 @@
 		<!-- <property name="cronExpression" 
 			value="0 0 7,12 ? * MON-FRI"/> -->
 			
-		<property name="cronExpression" 
-			value="0 05 9,22 ? * MON-SUN"/>
+		<property name="cronExpression" value="0 05 9,22 ? * MON-SUN"/>
 	</bean>
 	
 	<!-- 自动打卡、结算：执行实际的调度调度 -->
