@@ -22,7 +22,7 @@
       Quartz,整个应用使用Spring提供的DAO支持操作数据库,同时利用Spring的声明式事务。<br>
       程序中的权限检查使用Spring的AOP框架支持，也利用了Spring的任务调度抽象<br>
 	  Hibernate为底层的数据库访问提供支持,作为O/R Mapping框架使用。</p>
-      <p align="center" class="pt9">本程序的源代码随程序一起发布，版权属于李刚，<a href="http://www.leegang.org">http://www.leegang.org</a><br>
+      <p align="center" class="pt9">本程序的源代码随程序一起发布，版权属于李刚，<a href="http://www.zrfunds.com.cn">http://www.zrfunds.com.cn</a><br>
       任何个人可用来参考学习JavaEE架构，规范，但请勿在本程序的基础上修改，用做任何商业用途。<br>
       本人保留依法追究相关责任的权利。转载和学习请保留此信息。
       <br>

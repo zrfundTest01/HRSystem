@@ -16,7 +16,7 @@
   </tr>
   <tr>
     <td height="315">
-<a href="http//www.leegang.org">
+<a href="http://www.zrfunds.com.cn">
 <s:property value="exception.message"/>
 </a>
 </td>

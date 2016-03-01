@@ -14,9 +14,9 @@
   </tr>
   <tr>
     <td height="68" background="<%=ctx%>/images/bodybg.jpg"><p align="center" class="pt9">
-      All Rights Reserved.&copy; <a href="http://www.leegang.org">http://www.leegang.org</a><br/>
-      版权所有 Copyright&copy;2008 Yeeku.H.Lee <br/>
-    如有任何问题和建议，请登录<a href="http://www.leegang.org">http://www.leegang.org</a><br/>
+      All Rights Reserved.&copy; <a href="http://www.zrfunds.com.cn">http://www.zrfunds.com.cn</a><br/>
+      版权所有 Copyright&copy;2016 zhang song <br/>
+    如有任何问题和建议，请登录<a href="http://www.zrfunds.com.cn">http://www.zrfunds.com.cn</a><br/>
     建议您使用1024*768分辨率，IE5.0以上版本使用本系统!</p>
 	</td>
   </tr>

@@ -151,6 +151,12 @@
 		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<resources>
 			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+			<resource>
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
@@ -207,7 +213,8 @@
 				</configuration>
 			</plugin>   
        </plugins>  
-           <pluginManagement>
+       
+       <pluginManagement>
     	<plugins>
     		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
     		<plugin>
@@ -238,6 +245,30 @@
     				</lifecycleMappingMetadata>
     			</configuration>
     		</plugin>
+    		<!-- 国际化文件转换 --><!-- 待测试 -->
+    		<!-- <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>native2ascii-maven-plugin</artifactId>
+              <version>1.0-beta-1</version>
+              <executions>
+                  <execution>
+                  	  <id>native2ascii-utf8</id>
+                      <phase>compile</phase>
+                      <phase>generate-resources</phase>
+                      <goals>
+                          <goal>native2ascii</goal>
+                      </goals>
+		              <configuration>
+		                  <encoding>UTF-8</encoding>
+		                  <src>src/main/resources/</src>
+		                  <dest>src/main/webapp/WEB-INF/classes</dest>
+		                  <includes>
+		                      <include>**/*.properties</include>
+		                  </includes>
+		              </configuration>
+                  </execution>
+              </executions>
+           </plugin>  -->
     	</plugins>
     </pluginManagement>
   </build>

@@ -82,7 +82,7 @@ public class AuthImg extends HttpServlet
 				,20 + random.nextInt(110)
 				,20 + random.nextInt(110)));
 			//在图片上绘制系统生成的随机字符
-//			g.drawString(tmp , 15 * i + 10,15);
+			g.drawString(tmp , 15 * i + 10,15);
 		}
 		//获取HttpSesssion对象
 		HttpSession session = request.getSession(true);
@@ -117,4 +117,5 @@ public class AuthImg extends HttpServlet
 				return  itmp + "";
 		}
 	}
+
 }
