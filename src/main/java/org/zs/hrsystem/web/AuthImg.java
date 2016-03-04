@@ -11,9 +11,9 @@ import javax.imageio.*;
 
 public class AuthImg extends HttpServlet
 {
+	private static final long serialVersionUID = 8244494899717674578L;
 	//定义图形验证码中绘制字符的字体
-	private final Font mFont =
-		new Font("Arial Black", Font.PLAIN, 16);
+	private final Font mFont = new Font("Arial Black", Font.PLAIN, 16);
 	//定义图形验证码的大小
 	private final int IMG_WIDTH = 100;
 	private final int IMG_HEIGTH = 18;
@@ -30,8 +30,7 @@ public class AuthImg extends HttpServlet
 		return new Color(r , g , b);
 	}
 	//重写service方法，生成对客户端的响应
-	public void service(HttpServletRequest request,
-		HttpServletResponse response) 
+	public void service(HttpServletRequest request,	HttpServletResponse response) 
 		throws ServletException, IOException
 	{
 		//设置禁止缓存
@@ -39,8 +38,7 @@ public class AuthImg extends HttpServlet
 		response.setHeader("Cache-Control","no-cache");
 		response.setDateHeader("Expires", 0);
 		response.setContentType("image/jpeg");
-		BufferedImage image = new BufferedImage
-			(IMG_WIDTH , IMG_HEIGTH , BufferedImage.TYPE_INT_RGB);
+		BufferedImage image = new BufferedImage(IMG_WIDTH , IMG_HEIGTH , BufferedImage.TYPE_INT_RGB);
 		Graphics g = image.getGraphics();
 		Random random = new Random();
 		g.setColor(getRandColor(200 , 250));

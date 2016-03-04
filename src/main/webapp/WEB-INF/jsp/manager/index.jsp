@@ -9,8 +9,7 @@
 <body>
 <%@include file="../header.jsp"%> 
 <%@include file="mgrheader.jsp"%> 
-<table width=780 align="center" 
-	background="images/bodybg.jpg">
+<table width=780 align="center" background="images/bodybg.jpg">
   <tr height="60">
 	<td>&nbsp;</td>
   </tr>

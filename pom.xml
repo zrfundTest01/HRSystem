@@ -143,6 +143,12 @@
 		  <artifactId>aspectjweaver</artifactId> 
 		  <version>1.8.7</version>  
 	 </dependency>
+	  <!-- 操作Excel的jar -->
+     <dependency>
+		  <groupId>poi</groupId> 
+		  <artifactId>poi-2.5-final</artifactId> 
+		  <version>20040302</version>  
+	 </dependency>
   </dependencies>
   
   <build>

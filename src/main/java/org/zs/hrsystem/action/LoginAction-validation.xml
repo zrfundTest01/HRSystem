@@ -6,29 +6,29 @@
 <validators>
 	<field name="username">
 		<field-validator type="requiredstring">
-			<message key="name.requried"/><!-- 国际化（非硬编码-->
+			<message key="action.validation.name.requried"/><!-- 国际化（非硬编码-->
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>您输入的用户名只能是字母和数组，且长度必须在4到25之间</message>
+			<message key="action.validation.name.regex"/>
 		</field-validator>
 	</field>
 	<field name="password">
 		<field-validator type="requiredstring">
-			<message>密码必填！</message>
+			<message key="action.validation.password.requried"/>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
-			<message>您输入的密码只能是字母和数组，且长度必须在4到25之间</message>
+			<message key="action.validation.password.regex"/>
 		</field-validator>
 	</field>
 	<field name="vercode">
 		<field-validator type="requiredstring">
-			<message>验证码必填！</message>
+			<message key ="action.validation.vercode.requried"/>
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{6,6})]]></param>
-			<message>您输入的验证码只能是字母和数字，且长度必须在6位</message>
+			<message key="action.validation.vercode.regex"/>
 		</field-validator>
 	</field>
 </validators>

@@ -36,10 +36,8 @@ public class LoginAction extends EmpBaseAction {
 			//登录结果为普通员工
 			if (result == 1)
 			{
-				ctx.getSession().put(WebConstant.USER 
-					, username);
-				ctx.getSession().put(WebConstant.LEVEL
-					, WebConstant.EMP_LEVEL);
+				ctx.getSession().put(WebConstant.USER, username);
+				ctx.getSession().put(WebConstant.LEVEL,WebConstant.EMP_LEVEL);
 				setTip("您已经成功登陆系统");
 				return EMP_RESULT;
 			}

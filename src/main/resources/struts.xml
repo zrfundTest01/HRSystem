@@ -71,11 +71,26 @@
         </action>
 	
 		<!-- 查看自己的非正常出勤 -->	
-		<action name="viewUnPunch" 
-			class="org.zs.hrsystem.action.ViewUnAttendAction">
+		<action name="viewUnPunch" class="org.zs.hrsystem.action.ViewUnAttendAction">
 			<interceptor-ref name="basicStack"/>
 			<interceptor-ref name="empAuth"/>
 			<result>/WEB-INF/jsp/employee/viewUnAttend.jsp</result>
+        </action>
+        <!-- 非正常出勤表下载 -->	
+		<action name="unPunchDownload" class="org.zs.hrsystem.action.DownloadUnPunchAction">
+			<interceptor-ref name="basicStack"/>
+			<interceptor-ref name="empAuth"/>
+			<result name="success" type="stream">
+				<!-- 类型 -->
+				<param name="contentType">application/vnd.ms-excel</param>
+				<!-- 文件名 -->
+				<param name="contentDisposition">attachment;filename="${excelFileName}"</param>  
+				<!-- 缓冲区 -->
+				<param name="bufferSize">4096</param>
+				<!-- action返回的流对象名称 -->
+				<param name="inputName">excelStream</param>  
+			</result>
+			<result name="error">/WEB-INF/jsp/login.jsp</result>
         </action>
 
 		<!-- 进入异动申请 -->
@@ -101,8 +116,7 @@
         </action>
 
 		<!-- 查看本人工资的Action -->
-		<action name="view*Salary"
-			class="org.zs.hrsystem.action.ViewSalaryAction">
+		<action name="view*Salary" class="org.zs.hrsystem.action.ViewSalaryAction">
 			<interceptor-ref name="basicStack"/>
 			<interceptor-ref name="empAuth"/>
 			<result>/WEB-INF/jsp/{1}/viewSalary.jsp</result>
