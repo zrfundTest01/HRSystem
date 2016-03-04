@@ -6,6 +6,7 @@
 <!-- Struts2配置文件的根元素 -->
 <struts>
 	<!-- 配置了系列常量 -->
+	<!-- 国际化资源文件，文件名resource --><!-- 对于非西欧字符的国际化资源文件（如中文）需要使用native2ascii工具进行Unicode转换处理 -->
 	<constant name="struts.custom.i18n.resources" value="resource"/>
 	<constant name="struts.i18n.encoding" value="GBK"/>
 	<!-- 该配置使得struts2内置的大量的通用功能的拦截器发挥作用，如defaultStack、basicStack等等 -->

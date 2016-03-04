@@ -1,10 +1,10 @@
 <%@ page contentType="text/html; charset=gb2312"%>
 <%
-/* String ctx = request.getContextPath(); */
+String ctx = request.getContextPath();
 /* String ctx1 = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+ctx+"/"; */
 /* String realpath=application.getRealPath("/"); */
 	/* 在Tomcat server.xml中配置的虚拟路径 */
-	String ctx = "/imageDir";
+	/* String ctx = "/imageDir"; */
 %>
 <link href="<%=ctx%>/images/css.css" rel="stylesheet" type="text/css">
 <body topmargin="0">

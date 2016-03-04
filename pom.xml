@@ -245,16 +245,16 @@
     				</lifecycleMappingMetadata>
     			</configuration>
     		</plugin>
-    		<!-- 国际化文件转换 --><!-- 待测试 -->
-    		<!-- <plugin>
+    		<!-- 国际化文件转换 --><!-- 测试未成功 -->
+    		<plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>native2ascii-maven-plugin</artifactId>
               <version>1.0-beta-1</version>
               <executions>
                   <execution>
                   	  <id>native2ascii-utf8</id>
-                      <phase>compile</phase>
-                      <phase>generate-resources</phase>
+                      <phase>prepare-package</phase>
+                      <!-- <phase>compile</phase> -->
                       <goals>
                           <goal>native2ascii</goal>
                       </goals>
@@ -268,7 +268,7 @@
 		              </configuration>
                   </execution>
               </executions>
-           </plugin>  -->
+           </plugin> 
     	</plugins>
     </pluginManagement>
   </build>

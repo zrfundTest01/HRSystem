@@ -6,7 +6,7 @@
 <validators>
 	<field name="username">
 		<field-validator type="requiredstring">
-			<message key="name.requried"/><!-- 国际化（非硬编码） 测试失败！ -->
+			<message key="name.requried"/><!-- 国际化（非硬编码-->
 		</field-validator>
 		<field-validator type="regex">
 			<param name="expression"><![CDATA[(\w{4,25})]]></param>
