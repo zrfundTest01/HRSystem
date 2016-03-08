@@ -8,30 +8,44 @@
    <s:head/>
 </head>
 <body">
-<%@include file="../header.jsp"%>
-<%@include file="empheader.jsp"%>
-<table width=780 align="center"
-	background="<%=ctx%>/images/bodybg.jpg">
-<tr>
-<td>
-<s:form action="processApp">
-  <tr bgcolor="#e1e1e1" >
-    <td colspan="2"><div class="mytitle">当前用户：<s:property value="#session.user"/></div></td> 
-  </tr>
-  <tr bgcolor="#e1e1e1" >
-    <td colspan="2">请填写异动申请</td> 
-  </tr> 
-	<input type="hidden" name="attId" value="${param.attid}"/> 
-	<s:select name="typeId" label="申请类别" labelposition="left"
-	list="types"
-	listKey="id"
-	listValue="name"/>	
-	<s:textarea name="reason"  rows="5" cols = "20" label="申请理由"/>
-	<tr><td colspan="2">
-	<s:submit value="提交申请" theme="simple"/><s:reset  theme="simple" value="重新填写"/>
-	</td></tr>
-</s:form> 
-</table>
-<%@include file="../footer.jsp"%>
+	<%@include file="../header.jsp"%>
+	<%@include file="empheader.jsp"%>
+	<table width=780 align="center" background="<%=ctx%>/images/bodybg.jpg">
+	<tr>
+	<td>
+		<s:form action="processApp">
+		  <tr bgcolor="#e1e1e1" >
+		    <td colspan="2"><div class="mytitle">当前用户：<s:property value="#session.user"/></div></td> 
+		  </tr>
+		  <tr bgcolor="#e1e1e1" >
+		    <td colspan="2">请填写异动申请</td> 
+		  </tr> 
+			<input type="hidden" name="attId" value="${param.attid}"/> 
+			<s:select name="typeId" label="申请类别" labelposition="left"
+			list="types"
+			listKey="id"
+			listValue="name"/>	
+			<s:textarea name="reason"  rows="5" cols = "20" label="申请理由"/>
+			<tr><td colspan="2">
+			<s:submit value="提交申请" theme="simple"/><s:reset  theme="simple" value="重新填写"/>
+		</s:form> 
+	</td>
+	</tr>
+	
+	<tr>
+	<td>
+		<s:form action="uploadMore"   method="post" enctype="multipart/form-data" >
+			<tr bgcolor="#e1e1e1" >
+			    <td colspan="2">支撑材料上传（如有）</td> 
+			 </tr> 
+			<s:textfield name="title" label="文件标题"/><br/>
+			<s:file name="upload" label="选择文件" /><br/>
+			<s:submit value="上传"/><%-- <s:reset  theme="simple" value="重新选择"/> --%>
+		</s:form> 
+	</td>
+	</tr>
+	</table>
+	<%@include file="../footer.jsp"%>
+
 </body>
 </html>

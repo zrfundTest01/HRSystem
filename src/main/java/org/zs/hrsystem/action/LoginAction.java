@@ -29,7 +29,9 @@ public class LoginAction extends EmpBaseAction {
 		ActionContext ctx = ActionContext.getContext();
 		//获取HttpSession中的rand属性，验证码servlet完成的存放动作
 		String ver2 = (String)ctx.getSession().get("rand");
-		if (vercode.equals(ver2)){
+		//关闭图形验证码验证
+//		if (vercode.equals(ver2)){
+		if (true){
 			//调用业务逻辑方法来处理登录请求
 			int result = mgr.validLogin(getUsername() , 
 				getPassword());

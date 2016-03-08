@@ -9,6 +9,8 @@
 	<!-- 国际化资源文件，文件名resource --><!-- 对于非西欧字符的国际化资源文件（如中文）需要使用native2ascii工具进行Unicode转换处理 -->
 	<constant name="struts.custom.i18n.resources" value="resource"/>
 	<constant name="struts.i18n.encoding" value="GBK"/>
+	<!-- 该属性指定处理 MIME-type multipart/form-data，文件上传解析器 -->   
+    <constant name="struts.multipart.parser" value="jakarta" />  
 	<!-- 该配置使得struts2内置的大量的通用功能的拦截器发挥作用，如defaultStack、basicStack等等 -->
 	<package name="default" extends="struts-default">
 	
@@ -94,8 +96,7 @@
         </action>
 
 		<!-- 进入异动申请 -->
-		<action name="appChange" 
-			class="org.zs.hrsystem.action.AppChangeAction">
+		<action name="appChange" class="org.zs.hrsystem.action.AppChangeAction">
 			<interceptor-ref name="store">
 				<param name="operationMode">RETRIEVE</param>
 			</interceptor-ref>
@@ -105,8 +106,8 @@
         </action>
 
 		<!-- 提交异动申请 -->
-		<action name="processApp"
-			class="org.zs.hrsystem.action.ProcessAppAction">
+		<action name="processApp" class="org.zs.hrsystem.action.ProcessAppAction">
+			<!-- 该拦截器是struts2  内置的 -->
 			<interceptor-ref name="store">
 				<param name="operationMode">STORE</param>
 			</interceptor-ref>
@@ -114,6 +115,19 @@
 			<result name="input" type="redirect">/appChange.action?attid=${attId}</result>
 			<result>/WEB-INF/jsp/employee/index.jsp</result>
         </action>
+        <!-- 上传支撑材料文件 -->
+        <action name="uploadMore" class="org.zs.hrsystem.action.UploadMoreAction">
+        	<!-- 内置文件上传拦截器 -->
+        	 <interceptor-ref name="fileUpload">
+        	 	<param name="allowedTypes">image/png,image/jepg</param>
+        	 	<param name="maximumSize">2000</param>
+        	 </interceptor-ref>
+        	 <!-- 内置默认拦截器 -->
+        	 <interceptor-ref name="defaultStack"/>
+        	 <param name="savePath">/upload</param>
+        	 <result name="input">/WEB-INF/jsp/employee/index.jsp</result>
+			 <result>/WEB-INF/jsp/employee/index.jsp</result>
+		</action>
 
 		<!-- 查看本人工资的Action -->
 		<action name="view*Salary" class="org.zs.hrsystem.action.ViewSalaryAction">
